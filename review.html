@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Leave a Review — Concrete QT</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --primary: #1a1c20;
+      --accent: #e8a020;
+      --accent-dark: #c98a10;
+      --surface: #f5f4f0;
+      --white: #ffffff;
+      --text-muted: #6b7280;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--surface);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 1rem;
+    }
+    .logo {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: var(--primary);
+      text-decoration: none;
+      margin-bottom: 2rem;
+      display: block;
+      text-align: center;
+    }
+    .logo span { color: var(--accent); }
+    .card {
+      background: var(--white);
+      border-radius: 20px;
+      padding: 2.5rem 2rem;
+      max-width: 440px;
+      width: 100%;
+      text-align: center;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.08);
+    }
+    .card h1 {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.02em;
+    }
+    .card p {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      line-height: 1.6;
+      margin-bottom: 2rem;
+    }
+    .stars-row {
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+    }
+    .star-btn {
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0.25rem;
+      transition: transform 0.15s;
+    }
+    .star-btn:hover { transform: scale(1.2); }
+    .star-btn svg {
+      width: 44px;
+      height: 44px;
+      fill: #e5e7eb;
+      transition: fill 0.15s;
+    }
+    .star-btn.active svg,
+    .star-btn:hover svg,
+    .star-btn.hover svg { fill: var(--accent); }
+    .star-label {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      min-height: 1.2em;
+      margin-bottom: 1.5rem;
+    }
+    .back-link {
+      display: inline-block;
+      margin-top: 1.5rem;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      text-decoration: none;
+    }
+    .back-link:hover { color: var(--primary); }
+  </style>
+</head>
+<body>
+  <a href="index.html" class="logo">Concrete <span>QT</span></a>
+  <div class="card">
+    <h1>How did we do?</h1>
+    <p>Your feedback means the world to us. Tap the stars to rate your experience with Concrete QT.</p>
+    <div class="stars-row" id="stars">
+      <button class="star-btn" data-rating="1" aria-label="1 star">
+        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+      </button>
+      <button class="star-btn" data-rating="2" aria-label="2 stars">
+        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+      </button>
+      <button class="star-btn" data-rating="3" aria-label="3 stars">
+        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+      </button>
+      <button class="star-btn" data-rating="4" aria-label="4 stars">
+        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+      </button>
+      <button class="star-btn" data-rating="5" aria-label="5 stars">
+        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+      </button>
+    </div>
+    <div class="star-label" id="star-label">Select your rating</div>
+    <a href="index.html" class="back-link">← Back to website</a>
+  </div>
+
+  <script>
+    const labels = ['', 'Poor', 'Fair', 'Good', 'Great', 'Excellent!'];
+    const btns = document.querySelectorAll('.star-btn');
+    const label = document.getElementById('star-label');
+
+    btns.forEach(btn => {
+      btn.addEventListener('mouseenter', () => {
+        const r = parseInt(btn.dataset.rating);
+        btns.forEach(b => b.classList.toggle('hover', parseInt(b.dataset.rating) <= r));
+        label.textContent = labels[r];
+      });
+      btn.addEventListener('mouseleave', () => {
+        btns.forEach(b => b.classList.remove('hover'));
+        label.textContent = 'Select your rating';
+      });
+      btn.addEventListener('click', () => {
+        const r = parseInt(btn.dataset.rating);
+        if (r >= 4) {
+          // Happy customer — send to Google
+          window.location.href = 'https://g.page/r/review';
+        } else {
+          // Lower rating — private feedback
+          window.location.href = 'private.html?rating=' + r;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

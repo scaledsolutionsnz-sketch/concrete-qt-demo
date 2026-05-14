@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Private Feedback — Concrete QT</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --primary: #1a1c20;
+      --accent: #e8a020;
+      --surface: #f5f4f0;
+      --white: #ffffff;
+      --border: rgba(26,28,32,0.12);
+      --text-muted: #6b7280;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--surface);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 1rem;
+    }
+    .logo {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: var(--primary);
+      text-decoration: none;
+      margin-bottom: 2rem;
+      display: block;
+      text-align: center;
+    }
+    .logo span { color: var(--accent); }
+    .card {
+      background: var(--white);
+      border-radius: 20px;
+      padding: 2.5rem 2rem;
+      max-width: 480px;
+      width: 100%;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.08);
+    }
+    .card h1 {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.02em;
+    }
+    .card p {
+      color: var(--text-muted);
+      font-size: 0.88rem;
+      line-height: 1.65;
+      margin-bottom: 1.75rem;
+    }
+    .form-group { display: flex; flex-direction: column; gap: 0.4rem; margin-bottom: 1rem; }
+    .form-group label { font-size: 0.78rem; font-weight: 600; color: var(--primary); }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      padding: 0.7rem 0.9rem;
+      border: 1.5px solid var(--border);
+      border-radius: 8px;
+      font-size: 0.88rem;
+      font-family: 'Inter', sans-serif;
+      color: var(--primary);
+      background: var(--surface);
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus { border-color: var(--accent); background: var(--white); }
+    .form-group textarea { resize: vertical; min-height: 100px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .form-submit {
+      width: 100%;
+      background: var(--primary);
+      color: var(--white);
+      border: none;
+      padding: 0.85rem;
+      border-radius: 8px;
+      font-size: 0.88rem;
+      font-weight: 700;
+      font-family: 'Syne', sans-serif;
+      cursor: pointer;
+      transition: all 0.2s;
+      margin-top: 0.5rem;
+    }
+    .form-submit:hover { background: var(--accent); color: var(--primary); }
+
+    /* SUCCESS */
+    .success {
+      display: none;
+      text-align: center;
+      padding: 2rem 0 1rem;
+    }
+    .success-icon {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+    .success h2 {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+    }
+    .success p {
+      color: var(--text-muted);
+      font-size: 0.88rem;
+      margin-bottom: 1.5rem;
+    }
+    .back-link {
+      display: inline-block;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      text-decoration: none;
+    }
+    .back-link:hover { color: var(--primary); }
+  </style>
+</head>
+<body>
+  <a href="index.html" class="logo">Concrete <span>QT</span></a>
+  <div class="card">
+    <div id="form-section">
+      <h1>Share your feedback</h1>
+      <p>Thanks for taking the time. Your feedback helps us improve — we take every comment seriously and will follow up if you'd like us to.</p>
+      <form id="feedback-form" action="https://api.staticforms.xyz/submit" method="post">
+        <input type="hidden" name="apiKey" value="sf_768da8d33927e7f4f241d0a6" />
+        <input type="hidden" name="redirectTo" value="https://concrete-qt-demo.vercel.app/private.html?sent=true" />
+        <div class="form-row">
+          <div class="form-group">
+            <label>First Name</label>
+            <input type="text" name="firstName" placeholder="John" required />
+          </div>
+          <div class="form-group">
+            <label>Last Name</label>
+            <input type="text" name="lastName" placeholder="Smith" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Email (optional)</label>
+          <input type="email" name="email" placeholder="john@example.com" />
+        </div>
+        <div class="form-group">
+          <label>Your Rating</label>
+          <select name="rating" id="rating-select">
+            <option value="1">⭐ 1 star</option>
+            <option value="2">⭐⭐ 2 stars</option>
+            <option value="3">⭐⭐⭐ 3 stars</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>What could we have done better?</label>
+          <textarea name="message" placeholder="Please tell us what happened and how we can improve..." required></textarea>
+        </div>
+        <button type="submit" class="form-submit">Send Feedback →</button>
+      </form>
+    </div>
+    <div class="success" id="success-section">
+      <div class="success-icon">🙏</div>
+      <h2>Thanks for your feedback</h2>
+      <p>We appreciate you taking the time. We'll review your comments and work to do better. If you left an email, we may follow up.</p>
+      <a href="index.html" class="back-link">← Back to website</a>
+    </div>
+  </div>
+
+  <script>
+    // Pre-fill rating from URL param
+    const params = new URLSearchParams(location.search);
+    const rating = params.get('rating');
+    if (rating) {
+      const sel = document.getElementById('rating-select');
+      if (sel) sel.value = rating;
+    }
+    // Success state
+    if (params.get('sent') === 'true') {
+      document.getElementById('form-section').style.display = 'none';
+      document.getElementById('success-section').style.display = 'block';
+    }
+  </script>
+</body>
+</html>

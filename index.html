@@ -57,14 +57,11 @@
       height: 68px;
     }
     .nav-logo {
-      font-family: 'Syne', sans-serif;
-      font-size: 1.2rem;
-      font-weight: 800;
-      color: var(--white);
       text-decoration: none;
-      letter-spacing: -0.02em;
+      display: flex;
+      align-items: center;
     }
-    .nav-logo span { color: var(--accent); }
+    .nav-logo img { height: 38px; object-fit: contain; }
     .nav-cta {
       background: var(--accent);
       color: var(--primary);
@@ -88,7 +85,7 @@
     .hero-bg {
       position: absolute;
       inset: 0;
-      background-image: url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1800&q=80');
+      background-image: url('Landing.page.png');
       background-size: cover;
       background-position: center 40%;
       filter: brightness(0.38);
@@ -565,13 +562,11 @@
       margin-bottom: 1.5rem;
     }
     .footer-logo {
-      font-family: 'Syne', sans-serif;
-      font-size: 1.1rem;
-      font-weight: 800;
-      color: var(--white);
       text-decoration: none;
+      display: flex;
+      align-items: center;
     }
-    .footer-logo span { color: var(--accent); }
+    .footer-logo img { height: 34px; object-fit: contain; }
     .footer-links { display: flex; gap: 1.5rem; }
     .footer-links a { color: rgba(255,255,255,0.5); font-size: 0.82rem; text-decoration: none; transition: color 0.2s; }
     .footer-links a:hover { color: var(--white); }
@@ -634,7 +629,7 @@
   <!-- NAV -->
   <nav id="nav">
     <div class="nav-inner">
-      <a href="#" class="nav-logo">Concrete <span>QT</span></a>
+      <a href="#" class="nav-logo"><img src="Concrete.QT logo.png" alt="Concrete QT" /></a>
       <a href="#contact" class="nav-cta">Get a Quote</a>
     </div>
   </nav>
@@ -864,7 +859,7 @@
             </div>
             <div class="contact-item">
               <div class="contact-icon">📧</div>
-              <div class="contact-item-text"><a href="mailto:kapa@concreteqt.com">kapa@concreteqt.com</a></div>
+              <div class="contact-item-text"><a href="mailto:concreteqt@outlook.com">concreteqt@outlook.com</a></div>
             </div>
             <div class="contact-item">
               <div class="contact-icon">📍</div>
@@ -920,7 +915,7 @@
   <!-- FOOTER -->
   <footer>
     <div class="footer-inner">
-      <a href="#" class="footer-logo">Concrete <span>QT</span></a>
+      <a href="#" class="footer-logo"><img src="Concrete.QT logo.png" alt="Concrete QT" /></a>
       <div class="footer-links">
         <a href="#services">Services</a>
         <a href="#reviews">Reviews</a>

@@ -6,7 +6,7 @@
   <title>Concrete QT — Queenstown's Concrete Specialists</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <style>
     :root {
       --primary: #1a1c20;
@@ -31,7 +31,7 @@
       overflow-x: hidden;
     }
 
-    h1, h2, h3, h4 { font-family: 'Syne', sans-serif; }
+    h1, h2, h3, h4 { font-family: 'Barlow Condensed', sans-serif; }
 
     /* NAV */
     nav {
@@ -61,7 +61,7 @@
       display: flex;
       align-items: center;
     }
-    .nav-logo img { height: 38px; object-fit: contain; }
+    .nav-logo img { height: 40px; object-fit: contain; mix-blend-mode: screen; }
     .nav-cta {
       background: var(--accent);
       color: var(--primary);
@@ -99,24 +99,27 @@
     .hero-tag {
       display: inline-flex;
       align-items: center;
-      gap: 0.5rem;
-      background: rgba(232,160,32,0.18);
-      border: 1px solid rgba(232,160,32,0.4);
+      gap: 0.6rem;
       color: var(--accent);
       font-size: 0.72rem;
       font-weight: 600;
-      letter-spacing: 0.08em;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
-      padding: 0.35rem 0.9rem;
-      border-radius: 100px;
       margin-bottom: 1.5rem;
     }
+    .hero-tag::before {
+      content: '';
+      display: block;
+      width: 28px;
+      height: 2px;
+      background: var(--accent);
+    }
     .hero h1 {
-      font-size: clamp(2.8rem, 7vw, 5.5rem);
+      font-size: clamp(3.8rem, 9vw, 7.5rem);
       font-weight: 800;
       color: var(--white);
-      line-height: 1.05;
-      letter-spacing: -0.03em;
+      line-height: 1.0;
+      letter-spacing: 0.01em;
       margin-bottom: 1.2rem;
     }
     .hero h1 em {
@@ -148,7 +151,7 @@
       align-items: center;
       gap: 0.5rem;
       transition: all 0.2s;
-      font-family: 'Syne', sans-serif;
+      font-family: 'Barlow Condensed', sans-serif;
     }
     .btn-primary:hover { background: var(--accent-dark); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(232,160,32,0.35); }
     .btn-outline {
@@ -176,7 +179,7 @@
       text-align: right;
     }
     .stat-number {
-      font-family: 'Syne', sans-serif;
+      font-family: 'Barlow Condensed', sans-serif;
       font-size: 2rem;
       font-weight: 800;
       color: var(--white);
@@ -231,11 +234,11 @@
       align-items: center;
     }
     .intro-text h2 {
-      font-size: 2.2rem;
+      font-size: 2.8rem;
       font-weight: 800;
       color: var(--white);
-      line-height: 1.2;
-      letter-spacing: -0.02em;
+      line-height: 1.1;
+      letter-spacing: 0.01em;
       margin-bottom: 1rem;
     }
     .intro-text h2 span { color: var(--accent); }
@@ -262,9 +265,9 @@
       margin-bottom: 3.5rem;
     }
     .services-header h2 {
-      font-size: 2.4rem;
+      font-size: 3rem;
       font-weight: 800;
-      letter-spacing: -0.02em;
+      letter-spacing: 0.01em;
       margin-bottom: 0.75rem;
     }
     .services-header p {
@@ -315,10 +318,10 @@
       margin-bottom: 0.75rem;
     }
     .service-body h3 {
-      font-size: 1.05rem;
+      font-size: 1.25rem;
       font-weight: 700;
       margin-bottom: 0.4rem;
-      letter-spacing: -0.01em;
+      letter-spacing: 0.02em;
     }
     .service-body p {
       font-size: 0.85rem;
@@ -332,9 +335,9 @@
       margin-bottom: 2.5rem;
     }
     .gallery-header h2 {
-      font-size: 2.2rem;
+      font-size: 2.8rem;
       font-weight: 800;
-      letter-spacing: -0.02em;
+      letter-spacing: 0.01em;
       margin-bottom: 0.5rem;
     }
     .gallery-header p { color: var(--text-muted); }
@@ -369,10 +372,10 @@
     }
     .reviews-header .section-tag { color: var(--accent); }
     .reviews-header h2 {
-      font-size: 2.2rem;
+      font-size: 2.8rem;
       font-weight: 800;
       color: var(--white);
-      letter-spacing: -0.02em;
+      letter-spacing: 0.01em;
       margin-bottom: 0.5rem;
     }
     .stars-big {
@@ -424,7 +427,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      font-family: 'Syne', sans-serif;
+      font-family: 'Barlow Condensed', sans-serif;
       font-size: 0.8rem;
       font-weight: 700;
       color: var(--primary);
@@ -453,7 +456,7 @@
       padding: 0.75rem 1.75rem;
       border-radius: 8px;
       text-decoration: none;
-      font-family: 'Syne', sans-serif;
+      font-family: 'Barlow Condensed', sans-serif;
       transition: all 0.2s;
     }
     .review-cta a:hover { background: var(--accent-dark); transform: translateY(-2px); }
@@ -467,11 +470,11 @@
       align-items: start;
     }
     .contact-info h2 {
-      font-size: 2.2rem;
+      font-size: 2.8rem;
       font-weight: 800;
-      letter-spacing: -0.02em;
+      letter-spacing: 0.01em;
       margin-bottom: 1rem;
-      line-height: 1.2;
+      line-height: 1.1;
     }
     .contact-info h2 span { color: var(--accent); }
     .contact-info p {
@@ -537,7 +540,7 @@
       border-radius: 8px;
       font-size: 0.9rem;
       font-weight: 700;
-      font-family: 'Syne', sans-serif;
+      font-family: 'Barlow Condensed', sans-serif;
       cursor: pointer;
       transition: all 0.2s;
       letter-spacing: 0.02em;
@@ -566,7 +569,7 @@
       display: flex;
       align-items: center;
     }
-    .footer-logo img { height: 34px; object-fit: contain; }
+    .footer-logo img { height: 36px; object-fit: contain; mix-blend-mode: screen; }
     .footer-links { display: flex; gap: 1.5rem; }
     .footer-links a { color: rgba(255,255,255,0.5); font-size: 0.82rem; text-decoration: none; transition: color 0.2s; }
     .footer-links a:hover { color: var(--white); }
@@ -629,7 +632,7 @@
   <!-- NAV -->
   <nav id="nav">
     <div class="nav-inner">
-      <a href="#" class="nav-logo"><img src="Concrete.QT logo.png" alt="Concrete QT" /></a>
+      <a href="#" class="nav-logo"><img src="Logo.new.white.png" alt="Concrete QT" /></a>
       <a href="#contact" class="nav-cta">Get a Quote</a>
     </div>
   </nav>
@@ -638,7 +641,7 @@
   <section class="hero">
     <div class="hero-bg"></div>
     <div class="hero-content">
-      <div class="hero-tag">📍 Queenstown, New Zealand</div>
+      <div class="hero-tag">Queenstown, New Zealand</div>
       <h1>Built on <em>solid</em><br>foundations</h1>
       <p>Concrete placing, finishing, and pumping for residential and commercial projects across the Queenstown Lakes region. Quality work, every pour.</p>
       <div class="hero-actions">
@@ -915,7 +918,7 @@
   <!-- FOOTER -->
   <footer>
     <div class="footer-inner">
-      <a href="#" class="footer-logo"><img src="Concrete.QT logo.png" alt="Concrete QT" /></a>
+      <a href="#" class="footer-logo"><img src="Logo.new.white.png" alt="Concrete QT" /></a>
       <div class="footer-links">
         <a href="#services">Services</a>
         <a href="#reviews">Reviews</a>
